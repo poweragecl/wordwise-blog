@@ -22,8 +22,8 @@ get_header();
 
 			the_post_navigation(
 				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'wordwise' ) . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'wordwise' ) . '</span> <span class="nav-title">%title</span>',
+					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Anterior:', 'wordwise' ) . '</span> <span class="nav-title">%title</span>',
+					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Siguiente:', 'wordwise' ) . '</span> <span class="nav-title">%title</span>',
 				)
 			);
 
@@ -37,10 +37,37 @@ get_header();
 
 	</main><!-- #main -->
 
+
 <?php
 get_sidebar(); ?>
 
 </div> <!--/wrapper-->
+
+
+<section class="recommended-posts">
+	<div class="wrapper no-flex">
+		<?php 
+		$related_posts_query = new WP_Query( 
+			array( 
+				'category__in' => wp_get_post_categories( $post->ID ), 
+				'posts_per_page' => 4, 
+				'post__not_in' => array( $post->ID ) 
+			) 
+		); 
+		if ( $related_posts_query->have_posts() ) : ?>
+			<h2>También te puede interesar</h2>
+			<div class="recommended-posts-grid">
+			<?php while ( $related_posts_query->have_posts() ) : $related_posts_query->the_post(); 
+
+			get_template_part( 'template-parts/content', 'post-card' );
+
+			endwhile; ?>
+			</div>
+		<?php endif; wp_reset_postdata(); ?>
+	</div>
+</section>
+
+
 
 <?php
 get_footer();

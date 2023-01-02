@@ -1,8 +1,12 @@
 $softText: #757575;
 $hardText: #242845;
-$themeColor: #037A94;
+$themeColor: #037e94;
 $brandColor: #93C60C;
 
+//Darkmode
+$darkBackground: #131929;
+$darkHardText: rgba(255, 255, 255,.9);
+$darkLightText : rgba(255,255,255,.7);
 *{
     margin: 0;
     padding: 0;
@@ -23,13 +27,17 @@ body{
     max-width: 1200px;
     margin: 0 auto;
     gap: 18px;
-    padding: 18px;
+    padding: 18px 26px;
+
+    &.no-flex{
+        display: block;
+    }
 
     main#primary{
         padding: 0 38px 0 0;
         
         article.post{
-            font-size: 18px;
+            
 
             .entry-title{
                 font-weight: 900;
@@ -50,7 +58,6 @@ body{
 
 
 .site-header{
-    background-color: #fff;
     position: relative;
     margin-bottom: 14px;
     
@@ -88,7 +95,7 @@ body{
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 24px 18px 18px 18px;
+        padding: 24px 26px 26px 26px;
     }
 
     .site-branding{
@@ -100,12 +107,39 @@ body{
 }
 
 .header-wrapper.categories-menu-wrapper{
-    padding: 12px 18px;
+    padding: 12px 26px;
 }
 
 .site-footer{
-    padding: 25px 0;
+    padding: 0; 
     background-color: #242845;
+
+    .menu{
+
+        display: flex;
+        align-items: center;
+        
+        ul{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            display: flex;
+            gap: 28px;
+            
+            li{
+                a{
+                    font-size: 15px;
+                    color: rgba(255,255,255, .6);
+                    text-decoration: none;
+                    transition: .1s ease-in;
+
+                    &:hover{
+                        color: rgba(255,255,255, 1);
+                    }
+                }
+            }
+        }
+    }
 
     p{
         margin: 0;
@@ -114,19 +148,19 @@ body{
     .footer-wrapper{
         max-width: 1200px;
         margin: 0 auto;
+        padding: 0 26px;
     }
 
     .footer-top{
         display: flex;
         justify-content: space-between;
-        border-top: 1px solid #ddd;
-        border-bottom: 1px solid #ddd;
-        padding: 24px 0;
+        border-bottom: 1px solid rgba(255,255,255,.1);
+        padding: 34px 0;
 
         .logo-footer{
             img{
-                width: 100%;
-                max-width: 150px;
+                width: 170px;
+                max-width: 250px;
             }
         }
     }
@@ -134,16 +168,42 @@ body{
     .footer-bottom{
         display: flex;
         justify-content: space-between;
+        align-items: center;
         padding: 12px 0;
+        color: rgba(#fff, .7);
+
+        .copyright{
+            color: rgba(#fff, .7);
+            font-size: 14px;
+        }
+
     }
 
     .social-menu{
         .social-list{
             display: flex;
-            gap: 12px;
+            gap: 8px;
             list-style: none;
             padding: 0;
             margin: 0;
+
+            a{
+                width: 28px;
+                height: 28px;
+                font-size: 16px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-decoration: none;
+                border-radius: 500px;
+                background-color: rgba(255,255,255,.7);
+                color: $hardText;
+                transition: .1s ease-in;
+
+                &:hover{
+                    background-color: rgba(255,255,255,1);
+                }
+            }
         }
     }
 }
@@ -210,6 +270,20 @@ body{
 
 #secondary{
     min-width: 280px;
+
+    ul{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        
+        li{
+            a{
+                text-decoration: none;
+                color: $softText;
+            }
+        }
+    }
+
 }
 
 
@@ -222,6 +296,13 @@ body{
 
 
 // Cards
+
+.recommended-posts-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 32px;
+    margin: 24px 0;
+}
 
 .last-posts-grid{
     display: grid;
@@ -323,6 +404,18 @@ body{
 
 // SINGLE POST
 
+.entry-content{
+    font-size: 18px;
+    line-height: 1.8;
+    color: $hardText;
+
+    ol{
+        li{
+            margin-bottom: 1rem;
+        }
+    }
+}
+
 .post-categories{
     display: flex;
     gap: 8px;
@@ -405,3 +498,52 @@ body{
         }
     }
 }
+
+
+
+// DARK MODE
+
+@media (prefers-color-scheme: light) {
+    body {
+      background-color: white;
+      color: $hardText;
+    }
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: $darkBackground;
+      color: $darkHardText;
+    }
+
+    .wrapper main#primary article.post .entry-title {
+        color: $darkHardText;
+      }
+
+      .entry-content {
+        color: $darkLightText;
+      }
+
+      .post-card .post-card-title {
+        color: $darkHardText;
+      }
+
+      .post-card .card-excerpt{
+        color : $darkLightText;
+      }
+
+      #categories-menu .menu-secundario ul li a {
+        color: $darkHardText;
+        background-color: rgba(255,255,255,.05);
+      }
+
+      #categories-menu .menu-secundario ul li.current-menu-item a, #categories-menu .menu-secundario ul li a:hover {
+        background-color: rgba(255,255,255,.1);
+      }
+
+      .page-title {
+        color: $darkHardText;
+      }
+
+
+  } // End Dark Mode
