@@ -17,7 +17,7 @@
 
 
 			<div class="footer-top">
-				<div class="logo">NombreDeBlog</div>
+				<div class="logo-footer"><a href="<?php home_url(); ?>"><img src="<?php echo get_template_directory_uri() . '/assets/img/vitabalance-logo-blanco.svg'; ?>" alt="logo"></a></div>
 				<nav class="menu-footer">
 					menu
 				</nav>

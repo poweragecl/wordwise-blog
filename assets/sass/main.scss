@@ -1,6 +1,7 @@
 $softText: #757575;
 $hardText: #242845;
 $themeColor: #037A94;
+$brandColor: #93C60C;
 
 *{
     margin: 0;
@@ -50,6 +51,36 @@ body{
 
 .site-header{
     background-color: #fff;
+    position: relative;
+    margin-bottom: 14px;
+    
+    &:before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 5px;
+        width: 100%;
+        background-image: linear-gradient(to right, $brandColor, $themeColor);
+    }
+
+    #searchform-header{
+        input[type="text"]{
+            border-radius: 8px;
+            background-color: #f8f8f8;
+            border: 0;
+            padding: 6px 12px;
+        }
+
+        input[type="submit"]{
+            background-color: #037A94;
+            color: #fff;
+            border: 0;
+            outline: 0;
+            padding: 8px 18px;
+            cursor: pointer;
+        }
+    }
 
     .header-wrapper{
         max-width: 1200px;
@@ -57,14 +88,28 @@ body{
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 18px;
+        padding: 24px 18px 18px 18px;
+    }
+
+    .site-branding{
+        img{
+            max-width: 180px;
+        }
     }
 
 }
 
+.header-wrapper.categories-menu-wrapper{
+    padding: 12px 18px;
+}
 
 .site-footer{
     padding: 25px 0;
+    background-color: #242845;
+
+    p{
+        margin: 0;
+    }
 
     .footer-wrapper{
         max-width: 1200px;
@@ -76,13 +121,20 @@ body{
         justify-content: space-between;
         border-top: 1px solid #ddd;
         border-bottom: 1px solid #ddd;
-        padding: 18px 0;
+        padding: 24px 0;
+
+        .logo-footer{
+            img{
+                width: 100%;
+                max-width: 150px;
+            }
+        }
     }
 
     .footer-bottom{
         display: flex;
         justify-content: space-between;
-        padding: 18px 0;
+        padding: 12px 0;
     }
 
     .social-menu{
@@ -90,6 +142,8 @@ body{
             display: flex;
             gap: 12px;
             list-style: none;
+            padding: 0;
+            margin: 0;
         }
     }
 }
@@ -320,18 +374,32 @@ body{
     .menu-secundario{
         ul{
             display: flex;
-            gap: 15px;
+            gap: 12px;
             list-style: none;
             padding: 0;
             margin: 0;
 
             li{
-                a{
-                    font-weight: 800;
-                    text-decoration: none;
-                    text-transform: uppercase;
-                    color: $hardText;
 
+                &.current-menu-item{
+                    a{
+                        background-color: #eee;
+                    }
+                }
+
+
+                a{
+                    font-weight: 700;
+                    text-decoration: none;
+                    color: $hardText;
+                    background-color: #f8f8f8;
+                    border-radius: 6px;
+                    padding: 8px 18px;
+                    transition: .1s ease-in;
+
+                    &:hover{
+                        background-color: #eee;
+                    }
                 }
             }
         }

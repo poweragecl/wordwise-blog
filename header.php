@@ -60,17 +60,14 @@
 				?>
 			</nav>-->
 
-			<form role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
-				<div>
-					<label class="screen-reader-text" for="s">Búsqueda:</label>
+			<form role="search" method="get" id="searchform-header" action="<?php echo home_url( '/' ); ?>">
 					<input type="text" value="" name="s" id="s" />
 					<input type="submit" id="searchsubmit" value="Buscar" />
-				</div>
 			</form>
 
 		</div>	<!--wrapper-->
 
-		<div class="header-wrapper">
+		<div class="header-wrapper categories-menu-wrapper">
 			<div id="categories-menu">
 				<?php
 				wp_nav_menu( array(

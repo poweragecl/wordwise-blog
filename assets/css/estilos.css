@@ -29,17 +29,47 @@ body {
         margin: 18px 0; }
 
 .site-header {
-  background-color: #fff; }
+  background-color: #fff;
+  position: relative;
+  margin-bottom: 14px; }
+  .site-header:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 5px;
+    width: 100%;
+    background-image: linear-gradient(to right, #93C60C, #037A94); }
+  .site-header #searchform-header input[type="text"] {
+    border-radius: 8px;
+    background-color: #f8f8f8;
+    border: 0;
+    padding: 6px 12px; }
+  .site-header #searchform-header input[type="submit"] {
+    background-color: #037A94;
+    color: #fff;
+    border: 0;
+    outline: 0;
+    padding: 8px 18px;
+    cursor: pointer; }
   .site-header .header-wrapper {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 18px; }
+    padding: 24px 18px 18px 18px; }
+  .site-header .site-branding img {
+    max-width: 180px; }
+
+.header-wrapper.categories-menu-wrapper {
+  padding: 12px 18px; }
 
 .site-footer {
-  padding: 25px 0; }
+  padding: 25px 0;
+  background-color: #242845; }
+  .site-footer p {
+    margin: 0; }
   .site-footer .footer-wrapper {
     max-width: 1200px;
     margin: 0 auto; }
@@ -48,15 +78,20 @@ body {
     justify-content: space-between;
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
-    padding: 18px 0; }
+    padding: 24px 0; }
+    .site-footer .footer-top .logo-footer img {
+      width: 100%;
+      max-width: 150px; }
   .site-footer .footer-bottom {
     display: flex;
     justify-content: space-between;
-    padding: 18px 0; }
+    padding: 12px 0; }
   .site-footer .social-menu .social-list {
     display: flex;
     gap: 12px;
-    list-style: none; }
+    list-style: none;
+    padding: 0;
+    margin: 0; }
 
 .slide-overlay {
   width: 100%;
@@ -204,12 +239,19 @@ body {
 
 #categories-menu .menu-secundario ul {
   display: flex;
-  gap: 15px;
+  gap: 12px;
   list-style: none;
   padding: 0;
   margin: 0; }
+  #categories-menu .menu-secundario ul li.current-menu-item a {
+    background-color: #eee; }
   #categories-menu .menu-secundario ul li a {
-    font-weight: 800;
+    font-weight: 700;
     text-decoration: none;
-    text-transform: uppercase;
-    color: #242845; }
+    color: #242845;
+    background-color: #f8f8f8;
+    border-radius: 6px;
+    padding: 8px 18px;
+    transition: .1s ease-in; }
+    #categories-menu .menu-secundario ul li a:hover {
+      background-color: #eee; }
