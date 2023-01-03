@@ -229,3 +229,18 @@ function register_my_menus() {
 add_filter('comments_open', 'disable_comments_status', 20, 2);
 add_filter('pings_open', 'disable_comments_status', 20, 2);
 
+
+//Reading Time
+function reading_time() {
+    global $post;
+    $content = get_post_field( 'post_content', $post->ID );
+    $word_count = str_word_count( strip_tags( $content ) );
+    $reading_time = ceil($word_count / 200);
+
+    if ( $reading_time == 1 ) {
+        $timer = "1 minuto";
+    } else {
+        $timer = "$reading_time minutos";
+    }
+    return $timer;
+}

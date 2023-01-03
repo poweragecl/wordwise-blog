@@ -27,8 +27,13 @@
 	<header id="masthead" class="site-header">
 		<div class="header-wrapper">
 			<div class="site-branding">
+			
+			<?php the_custom_logo(); ?>
+
+			<!-- <div class="logo-animated"><a href="<?php echo home_url(); ?>"><object  data="<?php echo get_template_directory_uri() . '/assets/img/vitabalance-logo-animated.svg'; ?>"alt="logo" type="image/svg+xml"></object></a></div> -->
+
 				<?php
-				the_custom_logo();
+				
 				if ( is_front_page() && is_home() ) :
 					?>
 					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
@@ -61,8 +66,8 @@
 			</nav>-->
 
 			<form role="search" method="get" id="searchform-header" action="<?php echo home_url( '/' ); ?>">
-					<input type="text" value="" name="s" id="s" />
-					<input type="submit" id="searchsubmit" value="Buscar" />
+					<input type="text" value="" name="s" id="s" placeholder="Estoy buscando..."/>
+					<input type="submit" id="searchsubmit" value="Buscar"/>
 			</form>
 
 		</div>	<!--wrapper-->

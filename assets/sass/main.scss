@@ -66,9 +66,19 @@ body{
         position: absolute;
         top: 0;
         left: 0;
-        height: 5px;
+        height: 4px;
         width: 100%;
-        background-image: linear-gradient(to right, $brandColor, $themeColor);
+        background: linear-gradient(270deg, #037e94, #93c60c);
+        background-size: 400% 400%;
+        -webkit-animation: gradientAnimate 15s ease infinite;
+        -moz-animation: gradientAnimate 15s ease infinite;
+        animation: gradientAnimate 15s ease infinite;
+    }
+
+    .logo-animated{
+        embed{
+            width: 180px;
+        }
     }
 
     #searchform-header{
@@ -106,6 +116,21 @@ body{
 
 }
 
+@-webkit-keyframes gradientAnimate {
+        0%{background-position:0% 50%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 50%}
+    }
+    @-moz-keyframes gradientAnimate {
+        0%{background-position:0% 50%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 50%}
+    }
+    @keyframes gradientAnimate {
+        0%{background-position:0% 50%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 50%}
+    }
 .header-wrapper.categories-menu-wrapper{
     padding: 12px 26px;
 }
@@ -113,6 +138,7 @@ body{
 .site-footer{
     padding: 0; 
     background-color: #242845;
+    margin-top: 48px;
 
     .menu{
 
@@ -208,68 +234,113 @@ body{
     }
 }
 
-//swipper
 
-.slide-overlay{
+.hero-grid{
+    display: grid;
+    grid-template-columns: 2.12fr 1fr;
+    grid-template-rows: auto;
     width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,.9));
-    border-radius: 12px;
-}
+    gap: 18px;
+    margin-bottom: 38px;
 
-.swiper {
-    width: 100%;
-    max-width: 1160px;
-    height: 500px;
-    margin-bottom: 52px;
 
-    .swiper-slide{
+    a.card-link-container{
+        width: 100%;
+        height: 100%;
+        display: block;
         position: relative;
 
-        img{
+        &::after{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba($hardText, 0), rgba($hardText, 0), rgba($hardText, 1));
             border-radius: 12px;
         }
 
-        .slide-content{
-            position: absolute;
-            bottom: 46px;
-            left: 24px;
-            color: #fff;
-            width: 100%;
-
-            a{
-                text-decoration: none;
+        &:hover{
+            img{
+                transform: scale(1.06);
             }
-
-            .slide-title{
-                color: #fff;
-                font-weight: 800;
-                font-size: 2.5rem;
-                margin: 0;
-            }
-
-            .post-data{
-                color: #fff;
-                font-weight: 800;
-                text-transform: uppercase;
-
-            }
-
         }
 
     }
 
 
-  }
+    .hero-grid-card{
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+
+        &:first-child .card-content{
+            bottom: 34px;
+            left: 34px;            
+        }
+
+        &:first-child .card-content h3{
+            font-size: 42px;
+            line-height: 42px;
+        }
+
+
+
+        img{
+            border-radius: 12px;
+            transition: .5s ease-in-out;
+        }
+
+        &:first-child{
+            grid-row: span 2;
+        }
+
+        .card-content{
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+            z-index: 2;
+
+            .post-data{
+                time{
+                    color: #fff;
+                    margin:5px 0;
+                    display: block;
+                }
+            }
+
+            a{
+                color: #fff;
+                text-decoration: none;
+            }
+            h3{
+                color: #fff;
+                text-decoration: none;
+                font-size: 24px;
+                line-height: 26px;
+                font-weight: 900;
+            }
+        }
+    }
+
+
+}
+
+
 
 
 //Aside
 
 #secondary{
     min-width: 280px;
+    border-radius: 12px;
+    padding: 12px;
+
+    h2{
+        font-size: 16px;
+    }
 
     ul{
         list-style: none;
@@ -292,6 +363,21 @@ body{
 .section-title{
     font-size: 2.3rem;
     font-weight: 800;
+    color: $hardText;
+    margin-bottom: 18px;
+    display: inline-block;
+    position: relative;
+
+    // &::after{
+    //     content:'';
+    //     width: 50px;
+    //     height: 2px;
+    //     top: 50%;
+    //     right: -70px;
+    //     background-color: $brandColor;
+    //     position: absolute;
+    //     border-radius: 5px;
+    // }
 }
 
 
@@ -308,7 +394,9 @@ body{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 32px;
-    margin: 24px 0;
+    margin: 0;
+    padding-bottom: 34px;
+    border-bottom: 1px solid rgba(255,255,255,.1);
 }
 
 .post-card{
@@ -384,10 +472,10 @@ body{
                 background-color: $themeColor;
                 color: #fff;
                 text-decoration: none;
-                border-radius: 4px;
+                border-radius: 100px;
                 text-transform: uppercase;
                 font-weight: 700;
-                padding: 2px 8px;
+                padding: 2px 12px;
                 font-size: 13px;
                 transition: .1s ease-in-out;
                 
@@ -429,10 +517,10 @@ body{
             background-color: $themeColor;
             color: #fff;
             text-decoration: none;
-            border-radius: 4px;
+            border-radius: 100px;
             text-transform: uppercase;
             font-weight: 700;
-            padding: 2px 8px;
+            padding: 2px 12px;
             font-size: 13px;
             transition: .1s ease-in-out;
             
@@ -486,7 +574,7 @@ body{
                     text-decoration: none;
                     color: $hardText;
                     background-color: #f8f8f8;
-                    border-radius: 6px;
+                    border-radius: 150px;
                     padding: 8px 18px;
                     transition: .1s ease-in;
 
@@ -510,7 +598,22 @@ body{
     }
   }
   
-  @media (prefers-color-scheme: dark) {
+ @media (prefers-color-scheme: dark) {
+
+    .site-header #searchform-header input[type="text"] {
+        background-color: rgba(255,255,255,.1);
+        color: #fff;
+      }
+
+    .section-title{
+        color: $darkHardText;
+    }
+
+    .site-header .site-branding img {
+        max-width: 180px;
+        filter: brightness(100);
+      }
+
     body {
       background-color: $darkBackground;
       color: $darkHardText;
@@ -546,4 +649,110 @@ body{
       }
 
 
-  } // End Dark Mode
+  }  // End Dark Mode
+
+
+
+// Media Queries
+
+
+// `sm` applies to x-small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+
+    //Grids
+    .recommended-posts-grid{
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin: 24px 0;
+    }
+
+    .last-posts-grid{
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin: 24px 0;
+    }
+
+    .hero-grid{
+        grid-template-columns: 1fr;
+        margin-bottom: 18px;
+    }
+
+    //Wrappers
+
+    .wrapper {
+        flex-direction: column;     
+        max-width: 1200px;
+        margin: 0 auto;
+        gap: 18px;
+        padding: 18px 26px;
+
+        main#primary{
+            padding: 0;
+          }
+      }
+
+      //Titles
+      
+      .section-title {
+        font-size: 1.6rem;
+      }
+
+    
+}
+
+// `md` applies to small devices (landscape phones, less than 768px)
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+    //Grids
+    .recommended-posts-grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        margin: 24px 0;
+    }
+
+    .last-posts-grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        margin: 24px 0;
+    }
+
+    //Wrappers
+
+    .wrapper {
+        flex-direction: column;     
+        max-width: 1200px;
+        margin: 0 auto;
+        gap: 18px;
+        padding: 18px 26px;
+
+        main#primary{
+            padding: 0;
+          }
+      }
+
+      //Titles
+    
+      .section-title {
+        font-size: 1.8rem;
+      }
+      
+
+}
+
+// `lg` applies to medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+
+}
+
+// `xl` applies to large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+
+}
+
+// `xxl` applies to x-large devices (large desktops, less than 1400px)
+@media (max-width: 1399.98px) {
+}
+
+

@@ -19,66 +19,54 @@ get_header();
 ?>
 
 
-<div class="wrapper">
+<div class="wrapper no-flex">
 
+	<h2 class="section-title">Artículos destacados</h2>
 
-<!-- Slider main container -->
-<div class="swiper">
-			<!-- Additional required wrapper -->
-			<div class="swiper-wrapper">
-				<!-- Slides -->
+	<div class="hero-grid">
 
-				<?php
-				$args = array(
-				'posts_per_page' => 3,
-				// 'offset' => 1
-				);
-				$latest_posts = new WP_Query( $args );
-				if ( $latest_posts->have_posts() ) {
-				while ( $latest_posts->have_posts() ) {
-				$latest_posts->the_post();
-				?>
+			<?php
+			$args = array(
+			'posts_per_page' => 3,
+			// 'offset' => 1
+			);
+			$latest_posts = new WP_Query( $args );
+			if ( $latest_posts->have_posts() ) {
+			while ( $latest_posts->have_posts() ) {
+			$latest_posts->the_post();
+			?>
 
-				<div class="swiper-slide">
-
-					<?php the_post_thumbnail(); ?>
-
-					<div class="slide-overlay">
+			<div class="hero-grid-card">
+					<a class="card-link-container" href="<?php echo get_permalink();?>">
+					<div class="image-container">
+						<?php the_post_thumbnail(); ?>				
+					</div>
+					</a>
 					
-						<div class="slide-content">
+					<div class="card-content">
 
-							<div class="card-post-categories">
-								<?php the_category( '', false ); ?>
-							</div>
-
-							<div class="post-data">
-								<time><?php the_time( 'j F Y' ); ?></time>
-							</div>
-
-							<a href="<?php echo get_permalink();?>" class="permalink">
-							<?php the_title('<h1 class="slide-title">', '</h1>'); ?>
-							</a>
-
+						<div class="card-post-categories">
+							<?php the_category( '', false ); ?>
 						</div>
-					</div>  <!-- overlay -->
-				</div> <!-- slide -->
 
-				<?php
-				}
-				wp_reset_postdata();
-				}
-				?>
+						<div class="post-data">
+							<time><?php the_time( 'j F Y' ); ?></time>
+						</div>
 
+						<a href="<?php echo get_permalink();?>" class="permalink">
+							<?php the_title('<h3 class="grid-post-title">', '</h3>'); ?>
+						</a>
 
-			</div>
-			<!-- If we need pagination -->
-			<div class="swiper-pagination"></div>
+					</div>
+					
+			</div> 
 
-			<!-- If we need navigation buttons -->
-			<div class="swiper-button-prev"></div>
-			<div class="swiper-button-next"></div>
-
-		</div> <!--swipper-->
+			<?php
+			}
+			wp_reset_postdata();
+			}
+			?>
+	</div> <!--hero grid-->
 
 
 </div>
@@ -89,7 +77,7 @@ get_header();
 
 	<main id="primary" class="site-main">
 
-		<h2 class="section-title">Últimas Entradas</h2>
+		<h2 class="section-title">Últimos artículos</h2>
 
 		<div class="last-posts-grid">
 

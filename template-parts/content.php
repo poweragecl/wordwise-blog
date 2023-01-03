@@ -17,6 +17,8 @@
 			<?php the_category( '', false ); ?>
 		</div>
 
+		<span class="lecture-time"><i class="fa-solid fa-book-open"></i> <?php echo reading_time(); ?> </span>
+
 		<?php
 		if ( is_singular() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );
@@ -30,6 +32,9 @@
 				<time><?php the_time( 'j F Y' ); ?></time>
 			</div>
 		<?php endif; ?>
+
+		
+
 	</header><!-- .entry-header -->
 
 	<?php wordwise_post_thumbnail(); ?>
