@@ -17,7 +17,7 @@
 			<?php the_category( '', false ); ?>
 		</div>
 
-		<span class="lecture-time"><i class="fa-solid fa-book-open"></i> <?php echo reading_time(); ?> </span>
+		
 
 		<?php
 		if ( is_singular() ) :
@@ -36,8 +36,11 @@
 		
 
 	</header><!-- .entry-header -->
-
-	<?php wordwise_post_thumbnail(); ?>
+	<div class="thumbnail-container">
+		<?php wordwise_post_thumbnail(); ?>
+		<span class="lecture-time"><i class="fa-solid fa-book-open"></i> <?php echo reading_time(); ?> </span>
+	</div>
+	
 
 	<div class="entry-content">
 		<?php

@@ -32,13 +32,13 @@ if ( post_password_required() ) {
 			if ( '1' === $wordwise_comment_count ) {
 				printf(
 					/* translators: 1: title. */
-					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'wordwise' ),
+					esc_html__( 'Un comentario en &ldquo;%1$s&rdquo;', 'wordwise' ),
 					'<span>' . wp_kses_post( get_the_title() ) . '</span>'
 				);
 			} else {
 				printf( 
 					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $wordwise_comment_count, 'comments title', 'wordwise' ) ),
+					esc_html( _nx( '%1$s comentarios en &ldquo;%2$s&rdquo;', '%1$s comentarios en &ldquo;%2$s&rdquo;', $wordwise_comment_count, 'comments title', 'wordwise' ) ),
 					number_format_i18n( $wordwise_comment_count ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					'<span>' . wp_kses_post( get_the_title() ) . '</span>'
 				);

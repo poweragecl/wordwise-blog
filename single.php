@@ -27,6 +27,18 @@ get_header();
 				)
 			);
 
+			?>
+			
+			<form class="like-post-form" method="post" action="reaction.php">
+				<label for="imagen1"><input type="radio" id="imagen1" name="reaction" value="love" style="display:none;"><img class="choose-emote loveit" src="<?php echo get_stylesheet_directory_uri() . '/assets/img/dogos/Brown_love.svg'; ?>">Love it</label>
+				<label for="imagen2"><input type="radio" id="imagen2" name="reaction" value="lol" style="display:none;"><img class="choose-emote lol" src="<?php echo get_stylesheet_directory_uri() . '/assets/img/dogos/Brown_laugh.svg'; ?>">LOL</label>
+				<label for="imagen3"><input type="radio" id="imagen3" name="reaction" value="omg" style="display:none;"><img class="choose-emote omg" src="<?php echo get_stylesheet_directory_uri() . '/assets/img/dogos/Brown_drooling.svg'; ?>">OMG</label>
+				<label for="imagen4"><input type="radio" id="imagen4" name="reaction" value="meh" style="display:none;"><img class="choose-emote meh" src="<?php echo get_stylesheet_directory_uri() . '/assets/img/dogos/Brown_expressionless.svg'; ?>">Meh</label>
+				<input type="submit" value="Enviar">
+			</form>
+
+			<?php
+
 			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) :
 				comments_template();
@@ -42,6 +54,14 @@ get_header();
 get_sidebar(); ?>
 
 </div> <!--/wrapper-->
+
+<div class="wrapper no-flex">
+
+
+
+
+
+</div>
 
 
 <section class="recommended-posts">

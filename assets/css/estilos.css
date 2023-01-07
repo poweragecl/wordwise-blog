@@ -46,17 +46,24 @@ body {
   .site-header .logo-animated embed {
     width: 180px; }
   .site-header #searchform-header input[type="text"] {
-    border-radius: 8px;
+    border-radius: 50px 0 0 50px;
     background-color: #f8f8f8;
     border: 0;
-    padding: 6px 12px; }
+    padding: 11px 24px;
+    font-size: 15px;
+    line-height: 1.6; }
+    .site-header #searchform-header input[type="text"]:focus {
+      outline: 1px solid #037e94; }
   .site-header #searchform-header input[type="submit"] {
+    font-size: 15px;
+    line-height: 1.6;
     background-color: #037A94;
     color: #fff;
     border: 0;
     outline: 0;
-    padding: 8px 18px;
-    cursor: pointer; }
+    padding: 11px 38px 11px 32px;
+    cursor: pointer;
+    border-radius: 0 50px 50px 0; }
   .site-header .header-wrapper {
     max-width: 1200px;
     margin: 0 auto;
@@ -217,7 +224,7 @@ body {
         font-weight: 900; }
 
 #secondary {
-  min-width: 280px;
+  max-width: 312px;
   border-radius: 12px;
   padding: 12px; }
   #secondary h2 {
@@ -229,6 +236,24 @@ body {
     #secondary ul li a {
       text-decoration: none;
       color: #757575; }
+  #secondary .widget_tag_cloud .wp-block-tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px; }
+    #secondary .widget_tag_cloud .wp-block-tag-cloud .tag-cloud-link {
+      display: inline-block;
+      margin-bottom: 3px;
+      font-size: 13px !important;
+      text-decoration: none;
+      padding: 4px 12px;
+      color: #242845;
+      background-color: #f8f8f8;
+      border-radius: 100px;
+      text-transform: uppercase;
+      font-weight: 600;
+      transition: .2s; }
+      #secondary .widget_tag_cloud .wp-block-tag-cloud .tag-cloud-link:hover {
+        background-color: #eee; }
 
 .section-title {
   font-size: 2.3rem;
@@ -317,12 +342,42 @@ body {
     .post-card .post-categories li a:hover {
       background-color: #0a9cbd; }
 
+.lecture-time i {
+  margin-right: 7px; }
+
 .entry-content {
   font-size: 18px;
   line-height: 1.8;
   color: #242845; }
   .entry-content ol li {
     margin-bottom: 1rem; }
+
+.like-post-form {
+  padding: 12px 24px;
+  border-radius: 12px;
+  background-color: #f8f8f8;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  width: 100%;
+  margin: 16px 0; }
+  .like-post-form label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+  .like-post-form .choose-emote {
+    width: 100px;
+    height: auto;
+    cursor: pointer; }
+    .like-post-form .choose-emote.loveit:hover {
+      animation: heartBeat 1s; }
+    .like-post-form .choose-emote.lol:hover {
+      animation: shakeY 1s; }
+    .like-post-form .choose-emote.omg:hover {
+      animation: tada 1s; }
+    .like-post-form .choose-emote.meh:hover {
+      animation: swing 1s; }
 
 .post-categories {
   display: flex;
@@ -377,34 +432,6 @@ body {
   body {
     background-color: white;
     color: #242845; } }
-
-@media (prefers-color-scheme: dark) {
-  .site-header #searchform-header input[type="text"] {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #fff; }
-  .section-title {
-    color: rgba(255, 255, 255, 0.9); }
-  .site-header .site-branding img {
-    max-width: 180px;
-    filter: brightness(100); }
-  body {
-    background-color: #131929;
-    color: rgba(255, 255, 255, 0.9); }
-  .wrapper main#primary article.post .entry-title {
-    color: rgba(255, 255, 255, 0.9); }
-  .entry-content {
-    color: rgba(255, 255, 255, 0.7); }
-  .post-card .post-card-title {
-    color: rgba(255, 255, 255, 0.9); }
-  .post-card .card-excerpt {
-    color: rgba(255, 255, 255, 0.7); }
-  #categories-menu .menu-secundario ul li a {
-    color: rgba(255, 255, 255, 0.9);
-    background-color: rgba(255, 255, 255, 0.05); }
-  #categories-menu .menu-secundario ul li.current-menu-item a, #categories-menu .menu-secundario ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.1); }
-  .page-title {
-    color: rgba(255, 255, 255, 0.9); } }
 
 @media (max-width: 575.98px) {
   .recommended-posts-grid {
